@@ -4,6 +4,9 @@ from solve import *
 
 import datetime
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+
 solve_cudnn_error()
 #os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
