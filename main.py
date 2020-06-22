@@ -32,6 +32,7 @@ model.fit_generator(myGene,steps_per_epoch=150,epochs=4,callbacks=[model_checkpo
 testGene = testGenerator("data/DRIVE/test/after")
 results = model.predict_generator(testGene,20,verbose=1)
 
-datetime_dt = datetime.datetime.today()
-datetime_str = datetime_dt.strftime("%Y/%m/%d_%H-%M-%S")
-saveResult("data/DRIVE/result_" + datetime_str, results)
+# datetime_dt = datetime.datetime.today()
+# datetime_str = datetime_dt.strftime("%Y/%m/%d_%H-%M-%S")
+# saveResult("data/DRIVE/result_" + datetime_str, results)
+saveResult("data/DRIVE/result", results)
