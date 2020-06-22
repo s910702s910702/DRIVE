@@ -19,7 +19,8 @@ data_gen_args = dict(rotation_range=0.2,
                     zoom_range=0.05,
                     horizontal_flip=True,
                     fill_mode='nearest')
-myGene = trainGenerator(2 ,'data/DRIVE/training','after','after2',data_gen_args,save_to_dir = None)
+
+myGene = trainGenerator(8 ,'data/DRIVE/training','after','after2',data_gen_args,save_to_dir = None)
 
 print("Construct a model.")
 model = unet()
@@ -28,12 +29,10 @@ print("Generate training set.")
 model_checkpoint = ModelCheckpoint('unet_DRIVE.hdf5', monitor='loss',verbose=1, save_best_only=True)
 
 print("Fitting")
-model.fit(myGene,steps_per_epoch=150,epochs=4,callbacks=[model_checkpoint])
+model.fit(myGene,steps_per_epoch=300,epochs=10,callbacks=[model_checkpoint])
 
-testGene = testGenerator("data/DRIVE/test/after")
+print("Predicting.")
+testGene = testGenerator("data/DRIVE/test/after", 20)
 results = model.predict(testGene,20,verbose=1)
 
-# datetime_dt = datetime.datetime.today()
-# datetime_str = datetime_dt.strftime("%Y/%m/%d_%H-%M-%S")
-# saveResult("data/DRIVE/result_" + datetime_str, results)
 saveResult("data/DRIVE/result", results)
