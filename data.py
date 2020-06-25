@@ -84,7 +84,7 @@ def trainGenerator(batch_size,train_path,image_folder,mask_folder,aug_dict,image
 
 def testGenerator(test_path,num_image = 300,target_size = (576, 592),flag_multi_class = False,as_gray = False):
     for i in range(num_image):
-        img = io.imread(os.path.join(test_path,"%02d_test.tif.png" % (i+1)),as_gray = as_gray)
+        img = io.imread(os.path.join(test_path,"%02d_test.tif" % (i+1)),as_gray = as_gray)
         img = img / 255
         img = trans.resize(img,target_size)
         # img = np.reshape(img,img.shape+(1,)) if (not flag_multi_class) else img
