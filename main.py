@@ -35,4 +35,4 @@ print("Predicting.")
 testGene = testGenerator("data/test/image", 20)
 results = model.predict(testGene,20,verbose=1)
 
-saveResult("data/DRIVE/result", results)
+saveResult("data/result", results)
