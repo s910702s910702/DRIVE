@@ -20,7 +20,7 @@ data_gen_args = dict(rotation_range=0.2,
                     horizontal_flip=True,
                     fill_mode='nearest')
 
-myGene = trainGenerator(4 ,'data/train','image','mask',data_gen_args,save_to_dir = None)
+myGene = trainGenerator(4 ,'data/train','afterMask_blue','mask',data_gen_args,save_to_dir = None)
 
 print("Construct a model.")
 model = unet()
